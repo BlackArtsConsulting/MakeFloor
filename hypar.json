@@ -51,7 +51,12 @@
   },
   "respository_url": "https://github.com/BlackArtsConsulting/MakeFloor",
   "returns": {
-
+        "roomsTotal": {
+            "description": "The number of rooms in the model.",
+            "type": "number"
+        }
+    },
+    "version": "0.0.1"
   },
   "version": "0.1.0"
 }
