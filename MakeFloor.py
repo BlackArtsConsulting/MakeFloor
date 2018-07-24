@@ -49,9 +49,9 @@ def makeFloor(roomsSouth: int = 1,
     corridor.space.height = height
     mesh = corridor.space.mesh_graphic
     model.add_triangle_mesh(mesh.vertices, mesh.normals, mesh.indices, colorGreen)    
-    if roomsTotal > 8:
-        join = randint(0, roomsTotal - 2)  
-        if rooms[join].add(rooms[join + 1].points_floor): del rooms[join + 1]
+#    if roomsTotal > 8:
+#        join = randint(0, roomsTotal - 2)  
+#        if rooms[join].add(rooms[join + 1].points_floor): del rooms[join + 1]
     for room in rooms:
         room.height = height
         mesh = room.mesh_graphic
