@@ -15,7 +15,7 @@
     },
     "roomsEast": {
       "description": "Number of rooms on East side of corridor.",
-      "max": 8,
+      "max": 5,
       "min": 1,
       "step": 1,
       "type": "number"    
@@ -29,7 +29,7 @@
     },
     "roomsWest": {
       "description": "Number of rooms on West side of corridor.",
-      "max": 8,
+      "max": 5,
       "min": 1,
       "step": 1,
       "type": "number"    
@@ -38,14 +38,14 @@
       "description": "Depth of North end rooms in millimeters.",
       "max": 15000,
       "min": 8000,
-      "step": 1,
+      "step": 1000,
       "type": "number"    
     },
     "roomsSouthSize": {
       "description": "Depth of South end rooms in millimeters.",
       "max": 15000,
       "min": 8000,
-      "step": 1,
+      "step": 1000,
       "type": "number"    
     }
   },
@@ -56,5 +56,5 @@
             "type": "number"
         }
     },
-    "version": "0.0.1"
+    "version": "0.0.2"
 }
