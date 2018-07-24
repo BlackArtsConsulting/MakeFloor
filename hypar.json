@@ -1,0 +1,57 @@
+{
+  "description": "Office department distribution.",
+  "email": "anthony@hypar.io",
+  "function": "MakeFloor.makeFloor",
+  "function_id": "MakeFloor",
+  "name": "MakeFloor",
+  "runtime": "python3.6",
+  "parameters":{
+    "roomsSouth": {
+      "description": "Number of rooms at South end of corridor.",
+      "max": 2,
+      "min": 1,
+      "step": 1,
+      "type": "number"    
+    },
+    "roomsEast": {
+      "description": "Number of rooms on East side of corridor.",
+      "max": 8,
+      "min": 1,
+      "step": 1,
+      "type": "number"    
+    },
+    "roomsNorth": {
+      "description": "Number of rooms at North end of corridor.",
+      "max": 2,
+      "min": 1,
+      "step": 1,
+      "type": "number"    
+    },
+    "roomsWest": {
+      "description": "Number of rooms on West side of corridor.",
+      "max": 8,
+      "min": 1,
+      "step": 1,
+      "type": "number"    
+    },
+    "roomsNorthSize": {
+      "description": "Depth of North end rooms in millimeters.",
+      "max": 15000,
+      "min": 8000,
+      "step": 1,
+      "type": "number"    
+    },
+    "roomsSouthSize": {
+      "description": "Depth of South end rooms in millimeters.",
+      "max": 15000,
+      "min": 8000,
+      "step": 1,
+      "type": "number"    
+    }
+  },
+  "respository_url": "https://github.com/BlackArtsConsulting/MakeFloor",
+  "returns": {
+
+  },
+  "version": "0.1.0"
+}
