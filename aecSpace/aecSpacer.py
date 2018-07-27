@@ -64,9 +64,10 @@ class aecSpacer:
             spaces = []
             index = 0
             while index < copies:
-                newSpace = self.copy(space, x, y, z)
-                spaces += [newSpace]
-                space = newSpace
+                spaces += [self.copy(space, x, y, z)]
+                x += x
+                y += y
+                z += z
                 index += 1
             return spaces
         except Exception:

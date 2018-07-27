@@ -39,30 +39,29 @@ def makeFloor(roomsSouth: int = 1,
     floorSizeX = 30000
     floorSizeY = 70000
     floor.boundary = shaper.makeBox(aecPoint(), floorSizeX, floorSizeY)
-    rooms = corridor.makePolar(floor, 
-                               roomsWest = roomsWest, 
-                               roomsEast = roomsEast,
-                               roomsNorth = roomsNorth,
-                               roomsNorthSize = roomsNorthSize,
-                               roomsSouth = roomsSouth, 
-                               roomsSouthSize = roomsSouthSize) 
+    rooms = shell.makeI(roomsWest = roomsWest, 
+                        roomsEast = roomsEast,
+                        roomsNorth = roomsNorth,
+                        roomsNorthSize = roomsNorthSize,
+                        roomsSouth = roomsSouth, 
+                        roomsSouthSize = roomsSouthSize) 
     corridor.space.height = height
     mesh = corridor.space.mesh_graphic
     model.add_triangle_mesh(mesh.vertices, mesh.normals, mesh.indices, colorGreen)    
-#    if roomsTotal > 8:
-#        join = randint(0, roomsTotal - 2)  
-#        if rooms[join].add(rooms[join + 1].points_floor): del rooms[join + 1]
+    if roomsTotal > 8:
+        join = randint(0, roomsTotal)  
+        if rooms[join].add(rooms[(join + 1) % roomsTotal].points_floor): del rooms[(join + 1) % roomsTotal]
     for room in rooms:
         room.height = height
         mesh = room.mesh_graphic
         model.add_triangle_mesh(mesh.vertices, mesh.normals, mesh.indices, getColor(randint(0, 3)))   
     return {"model": model.save_base64(), 'computed':{'Total rooms':roomsTotal}}   
-#    model.save_glb('C:\\Users\\Anthony\\Dropbox\\Business\\BlackArts\\Development\\GitHub\\MakeFloor\\model.glb')
+#    model.save_glb('model.glb')
 #
 #
-#makeFloor(roomsSouth = randint(1, 2), 
-#          roomsEast = randint(1, 8), 
-#          roomsNorth = randint(1, 2), 
-#          roomsWest= randint(1, 8),
-#          roomsNorthSize = randint(8000, 15000),
-#          roomsSouthSize = randint(8000, 15000))
+#makeFloor(roomsSouth = 1,#randint(1, 2), 
+#          roomsEast = 3,#randint(1, 8), 
+#          roomsNorth = 2,#randint(1, 2), 
+#          roomsWest= 3,#randint(1, 8),
+#          roomsNorthSize = 10000,#randint(8000, 15000),
+#          roomsSouthSize = 10000)#randint(8000, 15000))

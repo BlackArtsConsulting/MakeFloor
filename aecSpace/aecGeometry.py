@@ -11,10 +11,38 @@ from .aecPoint import aecPoint
 
 class aecGeometry:
     
+    # Useful constants
+    
+    pi = 3.141592653589793
+    
     # Defines a series of constants indicating cardinal directions.
     
     N, NNE, NE, ENE, E, ESE, SE, SSE, S, SSW, SW, WSW, W, WNW, NW, NNW = range(0, 16)
        
+    # Defines a data structure of points holding points corresponding to cardinal directions.
+    
+    compass = \
+        NamedTuple(
+        'compass',
+        [
+            ('N', aecPoint),
+            ('NNE', aecPoint),
+            ('NE', aecPoint),
+            ('ENE', aecPoint),
+            ('E', aecPoint),
+            ('ESE', aecPoint),
+            ('SE', aecPoint),
+            ('SSE', aecPoint),
+            ('S', aecPoint),
+            ('SSW', aecPoint),
+            ('SW', aecPoint),
+            ('WSW', aecPoint),
+            ('W', aecPoint),
+            ('WNW', aecPoint),
+            ('NW', aecPoint),
+            ('NNW', aecPoint),            
+        ])
+    
     # Defines a data structure of eight points with locations indicated 
     # by compass point abbreviations in anticlockwise order for the 
     # (l)ower and (U)pper boundaries.
@@ -119,13 +147,22 @@ class aecGeometry:
             ('exterior', float), 
             ('convex', bool)
         ])
-    
-    def __init__(self):
-        """
-        Constructor
-        """
-        pass 
                 
+    def areAdjacent(self, shapeOne: List[aecPoint], shapeTwo: List[aecPoint]) -> bool:
+        """
+        Determines whether two shapes described by
+        the delivered point lists are adjacent.
+        Returns None if no determination can be made.
+        """
+        try:
+            shapeOne = shapely.polygon.orient(shapely.Polygon([pnt.xy for pnt in shapeOne])).buffer(distance = 10)
+            shapeTwo = shapely.polygon.orient(shapely.Polygon([pnt.xy for pnt in shapeTwo])).buffer(distance = 10)
+            if shapeOne.touches(shapeTwo) or shapeOne.intersects(shapeTwo): return True
+            return False
+        except Exception:
+            traceback.print_exc()
+            return None    
+
     def areColinear(self, points: List[aecPoint]) -> bool:
         """
         Returns True if all delivered points are colinear.
@@ -440,7 +477,7 @@ class aecGeometry:
         except Exception:
             traceback.print_exc()
             return None
-
+    
     def rmvColinear(self, points: List[aecPoint]) -> List[aecPoint]:
         """
         Returns the delivered list of points with redundundant colinear points removed.
@@ -463,4 +500,13 @@ class aecGeometry:
             traceback.print_exc()
             return None
            
-# end class
+    def toDegrees(self, radians: float = 0):
+        """
+        Returns a conversion of radians to degrees.
+        Returns None on failure.
+        """
+        try:
+            return (radians * (180 / aecGeometry.pi)) % 360
+        except Exception:
+            traceback.print_exc()
+            return None       

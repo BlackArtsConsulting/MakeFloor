@@ -49,13 +49,13 @@ class aecSpace:
         Constructor defaults to a 1 x 1 square with an origin at (0, 0, 0).
         """
         self.__address = (0, 0, 0)
+        self.__boundary = None
         self.__color = aecColor()
         self.__height = 1.0
         self.__ID = str(uuid4())
         self.__level = 0.0
         self.__name = ''
         self.__points_floor = None
-        self.__boundary = None
         if not points:
             points = \
             [
