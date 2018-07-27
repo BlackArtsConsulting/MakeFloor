@@ -40,7 +40,7 @@
     "roomsNorthSize": 
     {
       "description": "Depth of North end rooms in millimeters.",
-      "max": 15000,
+      "max": 16000,
       "min": 8000,
       "step": 1000,
       "type": "number"    
@@ -48,7 +48,7 @@
     "roomsSouthSize": 
     {
       "description": "Depth of South end rooms in millimeters.",
-      "max": 15000,
+      "max": 16000,
       "min": 8000,
       "step": 1000,
       "type": "number"    
