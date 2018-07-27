@@ -1,7 +1,7 @@
 {
   "description": "Office department distribution.",
   "function": "MakeFloor.makeFloor",
-  "name": "MakeFloor",
+  "name": "Make Floor",
   "runtime": "python3.6",
   "parameters":
   {

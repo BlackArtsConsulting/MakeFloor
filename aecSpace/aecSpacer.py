@@ -7,7 +7,6 @@ from typing import List
 from .aecGeometry import aecGeometry
 from .aecPoint import aecPoint
 from .aecSpace import aecSpace
-from .aecSpaceGroup import aecSpaceGroup
 
 """
 class aecSpacer
@@ -64,11 +63,11 @@ class aecSpacer:
             spaces = []
             index = 0
             while index < copies:
-                spaces += [self.copy(space, x, y, z)]
-                x += x
-                y += y
-                z += z
                 index += 1
+                X = x * index
+                Y = y * index
+                Z = z * index
+                spaces += [self.copy(space, X, Y, Z)]                
             return spaces
         except Exception:
             traceback.print_exc()
