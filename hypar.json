@@ -1,7 +1,8 @@
 {
-  "description": "Office department distribution.",
+  "respository_url": "https://github.com/BlackArtsConsulting/MakeFloor",
   "function": "MakeFloor.makeFloor",
-  "name": "Make Floor",
+  "name": "Make Floor",  
+  "description": "Office department distribution.",
   "runtime": "python3.6",
   "parameters":
   {
@@ -54,7 +55,6 @@
       "type": "number"    
     }
   },
-  "respository_url": "https://github.com/BlackArtsConsulting/MakeFloor",
   "returns": 
   {
         "roomsTotal": 
